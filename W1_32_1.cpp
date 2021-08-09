@@ -10,4 +10,5 @@ int main()
 
     printf("%d %d",x,y);
     
+    return 0;
 }
