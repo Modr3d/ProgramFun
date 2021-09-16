@@ -22,9 +22,23 @@ int main()
 		{
 			if(i >= s2.size())
 			{
-				if(c == 1)
+				if(c == 1 && i != s1.size()-1)
 				{
-					s.push_back(s1[i]+1);
+					if(s1[i]+1 < '9'+1)
+					{
+						s.push_back(s1[i]);
+						c=0;
+					}
+					else
+					{
+						s.push_back('0');
+						c=1;
+					}
+				}
+				else if(c == 1 && i == s1.size()-1)
+				{
+					s.push_back('0');
+					s.push_back('1');
 				}
 				else
 					s.push_back(s1[i]);
@@ -32,10 +46,15 @@ int main()
 			else
 			{
 				sum=(s1[i]-'0' + s2[i]-'0');
-				if(c == 1)
+				if(c == 1 && i != s1.size()-1)
 				{
 					s.push_back((sum%10)+'0'+1);
 					c=false;
+				}
+				else if(c == 1 && i == s1.size()-1)
+				{
+					s.push_back((sum%10)+'0'+1);
+					s.push_back('1');
 				}
 				else
 					s.push_back((sum%10)+'0');
@@ -50,9 +69,23 @@ int main()
 		{
 			if(i >= s1.size())
 			{
-				if(c == 1)
+				if(c == 1 && i != s2.size()-1)
 				{
-					s.push_back(s2[i]+1);
+					if(s2[i]+1 < '9'+1)
+					{
+						s.push_back(s2[i]);
+						c=0;
+					}
+					else
+					{
+						s.push_back('0');
+						c=1;
+					}
+				}
+				else if(c == 1 && i == s2.size()-1)
+				{
+					s.push_back('0');
+					s.push_back('1');
 				}
 				else
 					s.push_back(s2[i]);
@@ -60,10 +93,15 @@ int main()
 			else
 			{
 				sum=(s1[i]-'0' + s2[i]-'0');
-				if(c == 1)
+				if(c == 1 && i != s2.size()-1)
 				{
 					s.push_back((sum%10)+'0'+1);
 					c=false;
+				}
+				else if(c == 1 && i == s2.size()-1)
+				{
+					s.push_back((sum%10)+'0'+1);
+					s.push_back('1');
 				}
 				else
 					s.push_back((sum%10)+'0');
